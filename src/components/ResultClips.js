@@ -16,7 +16,10 @@ class ResultClips extends Component {
 
   componentWillReceiveProps(nextProps) {
       result_clips_to_map = scrubStories('schema_2', nextProps.clips, this.state.key);
-      this.setState({key: result_clips_to_map[result_clips_to_map.length-1].key});
+
+      if(result_clips_to_map === undefined ) {
+        result_clips_to_map = [];
+      }
   }
 
   render() {
